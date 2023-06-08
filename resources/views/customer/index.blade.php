@@ -65,28 +65,7 @@
                                 </div>
                             </a>
                         </div>
-                        {{-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" style="margin-top: 20px;">
-                            <a href="{{ route('user.wallet.view') }}">
-                               <div class="card" style="background-color: #ffffff40!important; height: 100px">
-                                  <div class="card-body p-3">
-                                     <div class="row">
-                                        <div class="col-8">
-                                           <div class="numbers">
-                                              <p style="color: white; font-size: 10px; font-weight: bold">
-                                                 Wallet</p>
-             
-                                           </div>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                           <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                              <i class="ni ni-folder-17 text-lg opacity-10" aria-hidden="true"></i>
-                                           </div>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                            </a>
-                         </div> --}}
+                       
                         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" style="margin-top: 20px;">
                             <a href="{{ route('user.deposit.post') }}">
                                 <div class="card" style="background-color: #8950fc!important; height: 100px">
@@ -168,40 +147,7 @@
                             </a>
                         </div>
 
-                        @if (!$loans == null)
-                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" style="margin-top: 20px;">
-                                <a href="{{ route('user.setting.view', ['security']) }}">
-                                    <div class="card" style="background-color: #ffffff40!important; height: 100px">
-                                        <div class="card-body p-3">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <div class="numbers">
-                                                        <p style="color: white; font-size: 10px; font-weight: bold">
-                                                            Personal Loan</p>
-                                                        <h5 class="font-weight-bolder mb-0">
-                                                            {{ $loans->amount }}
-                                                        </h5>
-                                                        <h6 style="font-size: 10px">
-                                                            Loan Status &nbsp;
-                                                            &nbsp; :
-                                                            {{ $loans->status == 0 ? 'unapproved' : 'Aprroved' }}
-                                                        </h6>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-4 text-end">
-                                                    <div
-                                                        class="icon icon-shape bg-gradient-primary10 shadow text-center border-radius-md">
-                                                        <i class="ni ni-support-16 text-lg opacity-10"
-                                                            aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endif
+                        
 
 
 
@@ -876,7 +822,7 @@
                                         </script>,
                                         made with <i class="fa fa-heart"></i> by
                                         <a href="https://staretontech.com/" class="font-weight-bold"
-                                            target="_blank">Staretonfinance</a>
+                                            target="_blank">Stackforte Finance</a>
                                     </div>
                                 </div>
                             </div>

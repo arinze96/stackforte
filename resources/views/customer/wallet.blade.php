@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Staretonfinance</title>
+    <title>Stackforte Finance</title>
     @include('include.c_css')
 
 </head>
@@ -297,7 +297,7 @@
                                     <div class="d-flex flex-column h-100">
                                         <p class="mb-1 pt-2 text-bold">Built for winners</p>
                                         <h5 class="font-weight-bolder">Kickstart your journey</h5>
-                                        <p class="mb-5">At Staretonfinance we prioritize your financial goals and
+                                        <p class="mb-5">At Stackforte Finance we prioritize your financial goals and
                                             will do the due diligence to attain them</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                                             href="javascript:;">

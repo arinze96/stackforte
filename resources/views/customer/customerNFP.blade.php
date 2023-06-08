@@ -1,40 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title>Staretonfinance</title>
+    <title>Stackforte Finance</title>
     @include('include.c_css')
     <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/dropzone.min.css') }}">
-
-
 </head>
-
 <body class="g-sidenav-show  bg-gray-100">
-
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-
     @include('include.c_sidebar')
-
+    <div class='dashboard-app'>
+    @include('include.c_header')
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
-        @include('include.c_header')
-
         <main class="main-content  mt-0">
             <section class="min-vh-100 mb-8">
-                <div class="container" style="margin-top: 100px">
+                <div class="container" style="margin-top: 30px">
                     <div class="row">
                         <div class="col-xl-6 col-lg-8 col-md-8 mx-auto">
                             <div class="card z-index-0">
                                 <div class="card-header text-center pt-4">
                                     <h3>NON FARM PAYROLL</h3>
                                 </div>
-
-
-
                                 <div class="card-body">
                                     <form action="{{ route('user.customerNFP') }}" method="POST">
                                         @csrf
@@ -183,7 +168,7 @@
                                                     <div class="form-control-wrap">
                                                         <button type="submit"
                                                             style="text-align:center; background-color:rgb(48, 48, 102)"
-                                                            class="d-block bg-gradient-primary form-control btn btn-primary ">
+                                                            class="d-block bg-gradient-primary10 form-control btn btn-primary ">
                                                             Submit Request</button>
                                                     </div>
                                                 </div>
@@ -204,10 +189,8 @@
         {{-- </div> --}}
     </main>
     @include('include.settings')
-
-
-
     @include('include.c_script')
+ </div>
 </body>
 
 

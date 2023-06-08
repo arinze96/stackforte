@@ -68,10 +68,10 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="about_desc">
-                                <h4>STRATEGY USED BY  Staretonfinance FOR NFP</h4>
-                                <p> Staretonfinance employs different strategies to ensure the massive return from the NFP
+                                <h4>STRATEGY USED BY  Stackforte Finance FOR NFP</h4>
+                                <p> Stackforte Finance employs different strategies to ensure the massive return from the NFP
                                     market just like the signals they have been providing lately. The strategy used by
-                                     Staretonfinance expert traders involves waiting for a small consolidation, the inside
+                                     Stackforte Finance expert traders involves waiting for a small consolidation, the inside
                                     bar, after the initial volatility of the report has subsided and the market is
                                     choosing which direction it will go. By controlling risk with a moderate stop, we
                                     are poised to make a potentially large profit from a huge move that almost always
@@ -102,7 +102,7 @@
                                     month).</p>
                                 <p>5. NFP current initial amount is $30,000 (Thirty thousand United States Dollars
                                     only). NFP Initial investment capital varies</p>
-                                <p>6.  Staretonfinance may, at our discretion cover and without notice immediately cover
+                                <p>6.  Stackforte Finance may, at our discretion cover and without notice immediately cover
                                     the deficit of our esteemed NFP clients by loaning the amount.
                                 </p>
                                 <p>

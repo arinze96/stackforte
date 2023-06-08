@@ -47,9 +47,9 @@
                                     behalf of the millions of children that’ll be impacted by your generosity – thank
                                     you. We partner to build a world where all children and youth enjoy equal resources
                                     and opportunities in society and live free from violence, discrimination, and
-                                    exploitation. To that end,  Staretonfinance invests in innovative local organizations,
+                                    exploitation. To that end,  Stackforte Finance invests in innovative local organizations,
                                     helping them deepen their impact and build their capacity for social change.
-                                    Together  Staretonfinance and its partners advance the rights of children and youth
+                                    Together  Stackforte Finance and its partners advance the rights of children and youth
                                     facing poverty and injustice and equip them with the tools and skills to reach their
                                     full potential.
 
@@ -69,7 +69,7 @@
                         <div class="col-sm-6">
                             <div class="about_desc">
                                 <p>
-                                    This one belief guides us in everything we do at Staretonfinance. It inspires us to
+                                    This one belief guides us in everything we do at Stackforte Finance. It inspires us to
                                     grant life-changing wishes for children going through so much. It compels us to be
                                     creative in exceeding the expectations of every kid. It drives us to make our
                                     donated resources go as far as possible. Most of all, it's the founding principle of
@@ -191,7 +191,7 @@
                                         SAFEGUARDING POLICY
                                     </h1>
                                     <p>
-                                        Staretonfinance’s donation for Children partners with community-based
+                                        Stackforte Finance’s donation for Children partners with community-based
                                         organizations around the world to help children and youth reach their full
                                         potential and advance their rights. We are deeply committed to protecting those
                                         most at risk and to acting as a role model for child- and youth-serving
@@ -214,7 +214,7 @@
                                         our activities.
                                         Our Global Safeguarding Policy reflects our commitment to respect, promote,
                                         uphold, and protect the rights of the child as set out in the UN Convention on
-                                        the Rights of the Child and in line with Staretonfinance values.
+                                        the Rights of the Child and in line with Stackforte Finance values.
 
 
                                     </p>
@@ -297,7 +297,7 @@
                                         OUR IMPACT
                                     </h1>
                                     <p>
-                                        Right now, Staretonfinance is helping the most vulnerable children across the
+                                        Right now, Stackforte Finance is helping the most vulnerable children across the
                                         Globe, We work to change the lives of vulnerable children starting at an early
                                         age. We’ve been doing this for about 3years. We’ve learnt a lot in this time -
                                         gathering experience and expertise that we use every day in more than 475 local

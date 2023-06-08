@@ -57,6 +57,11 @@ Route::get('/cryptocurrency-plans', [UserController::class,"cryptocurrencyplans"
 Route::get('/risk-management', [UserController::class,"riskmanagement"])->name("risk-management");
 Route::get('/what-we-offer', [UserController::class,"whatweoffer"])->name("what-we-offer");
 Route::match(["get","post"],"/customer/retirement/{name}/{id?}",[UserController::class,"retirementCustomer"])->name("customer.retirement.view");
+Route::match(["get","post"],"/customer/charity/{name}/{id?}",[UserController::class,"charityCustomer"])->name("customer.charity.view");
+Route::match(["get","post"],"/customer/customerNFP/{name}/{id?}",[UserController::class,"customerNFPCustomer"])->name("customer.customerNFP.view");
+Route::match(["get","post"],"/customer/loan/{name}/{id?}",[UserController::class,"loanCustomer"])->name("customer.loan.view");
+Route::match(["get","post"],"/customer/children_account/{name}/{id?}",[UserController::class,"childrenAccountCustomer"])->name("customer.children_account.view");
+
 
 
 Route::get("/customer/dashboard",[UserController::class,"dashboard"])->middleware(["auth"])->name("user.dashboard.view");
@@ -96,12 +101,6 @@ Route::match(["get","post"],"/customer/setting/{name}",[AccountController::class
 
 // logout
 Route::get("/customer/logout",[UserController::class,"logout"])->middleware(["auth"])->name("user.logout.view");
-
-
-
-
-
-
 
 
 

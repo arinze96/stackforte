@@ -6,7 +6,6 @@
 <head>
     <title>STACKFORTE FINANCE</title>
     @include('include.c_css')
-
     <script>
         function myFunction() {
             var copyText = document.getElementById("myInput");
@@ -16,11 +15,7 @@
             alert("Copied the text: " + copyText.value);
         }
     </script>
-
-
-
 </head>
-
 <body>
     <div class='dashboard'>
         @include('include.c_sidebar')
@@ -29,14 +24,14 @@
             <main class="main-content  position-relative max-height-vh-100 h-100 ">
                 <div class="container-fluid py-4">
 
-                    @if ($retirement)
+                    @if ($customerNFP)
                         <div class="row my-4">
                             <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
                                 <div class="card">
                                     <div class="card-header pb-0">
                                         <div class="row">
                                             <div class="col-lg-6 col-7">
-                                                <h4>Your Recent Retirement Deposit</h4>
+                                                <h4>Your Recent Customer NFP Deposit</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +45,7 @@
                                                             #</th>
                                                         <th
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                            Plan Name</th>
+                                                            Full Name</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Currency
@@ -60,36 +55,20 @@
                                                             Amount</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Duration</th>
-                                                        <th
-                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Start Date</th>
-
-                                                        <th
-                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Close Date</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Status</th>
-                                                        <th
-                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Profit</th>
-                                                        <th
-                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Compound</th>
-                                                        <th
-                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Transfer</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($retirement as $key => $data)
+                                                    @foreach ($customerNFP as $key => $data)
                                                         <tr>
                                                             <td class="align-middle text-center text-sm">
                                                                 {{ $key + 1 }}
                                                             </td>
                                                             <td class="align-middle text-center text-sm">
-                                                                {{ $data->plan_name }}
+                                                                {{ $data->firstname }} {{ $data->lastname }}
                                                             </td>
                                                             <td class="align-middle text-center text-sm">
                                                                 {{ $data->currency }}
@@ -98,36 +77,10 @@
                                                                 {{ $data->currency == 'USD' ? number_format($data->amount, 0, '.', ',') : $data->amount }}
                                                             </td>
                                                             <td class="align-middle text-center text-sm">
-                                                                {{ $data->duration }}
-                                                            </td>
-                                                            <td class="align-middle text-center text-sm">
                                                                 {{ date('d M, Y', strtotime($data->created_at)) }}
                                                             </td>
                                                             <td class="align-middle text-center text-sm">
-                                                                {{ date('d M, Y', strtotime($data->close_date)) }}
-                                                            </td>
-                                                            <td class="align-middle text-center text-sm">
                                                                 {{ $data->status == 0 ? 'processing' : 'approved' }}
-                                                            </td>
-                                                            <td class="align-middle text-center text-sm">
-                                                                {{ $data->currency == 'USD' ? number_format($data->growth_amount, 0, '.', ',') : $data->growth_amount }}
-                                                            </td>
-                                                            <td class="align-middle text-center text-sm">
-                                                                <div
-                                                                    style="width: 100%; height: 35px; background-color:#2152ff; border-radius: 5px; align-items:center; padding-top: 5px ">
-                                                                    <h6
-                                                                        style="color: #fff; font-size: 10px; text-align: center; font-weight: bold">
-                                                                        Transfer <br>
-                                                                        Profit</h6>
-                                                                </div>
-                                                            </td>
-                                                            <td class="align-middle text-center text-sm">
-                                                                <div
-                                                                    style="width: 100%; height: 35px; background-color:#2152ff; border-radius: 5px; align-items:center; padding-top: 12px ">
-                                                                    <h6
-                                                                        style="color: #fff; font-size: 10px; text-align: center; font-weight: bold">
-                                                                        Compound</h6>
-                                                                </div>
                                                             </td>
                                                         </tr>
                                                     @endforeach

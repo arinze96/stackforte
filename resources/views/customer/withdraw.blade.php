@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Staretonfinance</title>
+    <title>Stackforte Finance</title>
     @include('include.c_css')
     <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/dropzone.min.css') }}">
 

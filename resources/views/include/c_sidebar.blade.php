@@ -57,9 +57,9 @@
             <div class='dashboard-nav-dropdown-menu'>
                 <a href="{{ route('user.charity') }}" class="dashboard-nav-dropdown-item">Add
                     Charity</a>
-                <a href="{{ route('customer.retirement.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
+                <a href="{{ route('customer.charity.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
                     Charity</a>
-                <a href="{{ route('customer.retirement.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
+                <a href="{{ route('customer.charity.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
                     Charity</a>
             </div>
         </div>
@@ -72,9 +72,9 @@
             <div class='dashboard-nav-dropdown-menu'>
                 <a href="{{ route('user.customerNFP') }}" class="dashboard-nav-dropdown-item">Add
                     NFP</a>
-                <a href="{{ route('customer.retirement.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
+                <a href="{{ route('customer.customerNFP.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
                     NFP</a>
-                <a href="{{ route('customer.retirement.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
+                <a href="{{ route('customer.customerNFP.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
                     NFP</a>
             </div>
         </div>
@@ -87,9 +87,9 @@
             <div class='dashboard-nav-dropdown-menu'>
                 <a href="{{ route('user.loan') }}" class="dashboard-nav-dropdown-item">Add
                     Loans</a>
-                <a href="{{ route('customer.retirement.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
+                <a href="{{ route('customer.loan.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
                     Loans</a>
-                <a href="{{ route('customer.retirement.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
+                <a href="{{ route('customer.loan.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
                     Loans</a>
             </div>
         </div>
@@ -102,9 +102,9 @@
             <div class='dashboard-nav-dropdown-menu'>
                 <a href="{{ route('user.children_account') }}" class="dashboard-nav-dropdown-item">Add
                     Children Account</a>
-                <a href="{{ route('customer.retirement.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
+                <a href="{{ route('customer.children_account.view', ['active']) }}"class="dashboard-nav-dropdown-item">Active
                     Children Account</a>
-                <a href="{{ route('customer.retirement.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
+                <a href="{{ route('customer.children_account.view', ['all']) }}" class="dashboard-nav-dropdown-item">All
                     Children Account</a>
             </div>
         </div>

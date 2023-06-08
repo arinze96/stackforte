@@ -29,7 +29,7 @@
                                 <h1>PORTFOLIO MANAGEMENT </h1>
                                 <h5 style="margin-top: 20px; margin-bottom: 20px">WE ACTIVELY MONITOR MARKETS</h5>
                                 <p>
-                                     Staretonfinance believes portfolio management is far more than just buying stocks and
+                                     Stackforte Finance believes portfolio management is far more than just buying stocks and
                                     bonds and hoping they do well. We use a tested “top-down” investment approach
                                     combined with personalized planning to build a portfolio tailored to your long-term
                                     financial goals. Our proven approach has attracted a global base of over 900 million
@@ -70,7 +70,7 @@
                                 <p>
                                     The overall success of your financial plan is partly dependent on an appropriate
                                     investment recommendation, based on your long-term financial goals and objectives.
-                                    At Staretonfinance, we take into account everything from your family health history
+                                    At Stackforte Finance, we take into account everything from your family health history
                                     to the specific stocks, bonds or other investments in your portfolio to help build
                                     an in-depth understanding of the objectives for your assets. Using tools like
                                     portfolio simulations and historical modeling, we can provide an investment
@@ -86,7 +86,7 @@
                                     giving them the opportunity to use their assets to support someone or something
                                     important to them. While supplementary to an appropriate investment recommendation,
                                     planning for and protecting the future of your wealth are common needs that can be
-                                    complicated to address. At  Staretonfinance, we can provide perspective on tactics and
+                                    complicated to address. At  Stackforte Finance, we can provide perspective on tactics and
                                     resources available to help ensure what you want to happen, does.
                                 </p>
                                 <p>

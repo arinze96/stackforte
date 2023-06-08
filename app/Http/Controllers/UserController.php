@@ -52,7 +52,7 @@ class UserController extends Controller
         ];
         try {
             Mail::to('edmund10arinze@gmail.com')->send(new GeneralMailer($details));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             dd($e);
         }
     }
@@ -169,12 +169,11 @@ class UserController extends Controller
         if ($request->method() == "GET") {
             $user = $request->user();
             $plans = Plan::orderBy('currency', 'desc')->get();
-            
 
             return view("customer.customer_retirement", [
                 "userDetails" => $user,
                 "plans" => $plans,
-                "retirement" => $retirement
+                "retirement" => $retirement,
             ]);
         }
         $data = (object) $request->all();
@@ -480,7 +479,7 @@ class UserController extends Controller
             try {
                 Mail::to($data->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails1));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
             return redirect()->route('user.login');
@@ -562,7 +561,7 @@ class UserController extends Controller
             Mail::to($user->email)->send(new GeneralMailer($details));
             Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails2));
             // Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             // Never reached
         }
 
@@ -621,7 +620,7 @@ class UserController extends Controller
         try {
             Mail::to($user->email)->send(new GeneralMailer($details));
             Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails3));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             // Never reached
         }
 
@@ -687,24 +686,98 @@ class UserController extends Controller
             if (($name == "active") || ($name == "all")) {
                 $retirement = ($name == "active") ?
                 $retirement = Transaction::
-                where([["type", "=", "investment"],["status", "=", "1"],["plan_name", "=", "403(b) Plans"],["user_id", "=", $user->id]])->
-                orWhere([["type", "=", "investment"],["status", "=", "1"],["plan_name", "=", "529 Plans"],["user_id", "=", $user->id]])->
-                orWhere([["type", "=", "investment"],["status", "=", "1"],["plan_name", "=", "Roth IRAs"],["user_id", "=", $user->id]])->
-                orWhere([["type", "=", "investment"],["status", "=", "1"],["plan_name", "=", "Traditional IRAs"],["user_id", "=", $user->id]])->
-                orWhere([["type", "=", "investment"],["status", "=", "1"],["plan_name", "=", "457 Pans"],["user_id", "=", $user->id]])->
-                orderBy("created_at", "desc")->limit(1000)->get():
+                    where([["type", "=", "investment"], ["status", "=", "1"], ["plan_name", "=", "403(b) Plans"], ["user_id", "=", $user->id]])->
+                    orWhere([["type", "=", "investment"], ["status", "=", "1"], ["plan_name", "=", "529 Plans"], ["user_id", "=", $user->id]])->
+                    orWhere([["type", "=", "investment"], ["status", "=", "1"], ["plan_name", "=", "Roth IRAs"], ["user_id", "=", $user->id]])->
+                    orWhere([["type", "=", "investment"], ["status", "=", "1"], ["plan_name", "=", "Traditional IRAs"], ["user_id", "=", $user->id]])->
+                    orWhere([["type", "=", "investment"], ["status", "=", "1"], ["plan_name", "=", "457 Pans"], ["user_id", "=", $user->id]])->
+                    orderBy("created_at", "desc")->limit(1000)->get() :
 
                 Retirement::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
 
                 return view("customer.$name-retirement", ["retirement" => $retirement]);
             } else {
-                $retirement = DB::table('retirements')->where('id','=',$id)->get()->first();
+                $retirement = DB::table('retirements')->where('id', '=', $id)->get()->first();
                 // dd($charities);
                 return view("customer.$name-retirement", ["retirement" => $retirement]);
             }
         }
     }
-    
+
+    public function charityCustomer(Request $request, $name, $id = null)
+    {
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            if (($name == "active") || ($name == "all")) {
+                $charity = ($name == "active") ?
+                Charity::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get() :
+
+                Charity::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
+
+                return view("customer.$name-charity", ["charity" => $charity]);
+            } else {
+                $charity = DB::table('charitys')->where('id', '=', $id)->get()->first();
+                // dd($charities);
+                return view("customer.$name-charity", ["charity" => $charity]);
+            }
+        }
+    }
+
+    public function customerNFPCustomer(Request $request, $name, $id = null)
+    {
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            if (($name == "active") || ($name == "all")) {
+                $customerNFP = ($name == "active") ?
+                Nfp::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get() :
+
+                Nfp::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
+
+                return view("customer.$name-customerNFP", ["customerNFP" => $customerNFP]);
+            } else {
+                $customerNFP = DB::table('nfps')->where('id', '=', $id)->get()->first();
+                // dd($charities);
+                return view("customer.$name-customerNFP", ["customerNFP" => $customerNFP]);
+            }
+        }
+    }
+
+    public function loanCustomer(Request $request, $name, $id = null)
+    {
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            if (($name == "active") || ($name == "all")) {
+                $loan = ($name == "active") ?
+                Loan::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get():
+
+                Loan::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
+
+                return view("customer.$name-loan", ["loan" => $loan]);
+            } else {
+                $loan = DB::table('loans')->where('id', '=', $id)->get()->first();
+                // dd($charities);
+                return view("customer.$name-loan", ["loan" => $loan]);
+            }
+        }
+    }
+
+    public function childrenAccountCustomer(Request $request, $name, $id = null)
+    {
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            if (($name == "active") || ($name == "all")) {
+                $children_account = ($name == "active") ?
+                ChildrenAccount::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get() :
+
+                ChildrenAccount::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
+
+                return view("customer.$name-children_account", ["children_account" => $children_account]);
+            } else {
+                $children_account = DB::table('children_accounts')->where('id', '=', $id)->get()->first();
+                return view("customer.$name-children_account", ["children_account" => $children_account]);
+            }
+        }
+    }
 
     public function staticPages(Request $request, $name)
     {
@@ -732,7 +805,6 @@ class UserController extends Controller
         }
     }
 
-   
     public function loginAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -757,7 +829,7 @@ class UserController extends Controller
             return view("auth.admin-login", ["noMatch" => "Invalid Login Detail"]);
         }
     }
-  
+
     public function dashboardAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -877,7 +949,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -921,7 +993,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -942,7 +1014,7 @@ class UserController extends Controller
 
                 return view("admin.$name-loans", ["loans" => $loans]);
             } else {
-                $loans = DB::table('loans')->where('id','=',$id)->get()->first();
+                $loans = DB::table('loans')->where('id', '=', $id)->get()->first();
                 // dd($loans);
                 return view("admin.$name-loans", ["loans" => $loans]);
             }
@@ -1007,7 +1079,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1047,7 +1119,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1068,7 +1140,7 @@ class UserController extends Controller
 
                 return view("admin.$name-charity", ["charities" => $charities]);
             } else {
-                $charities = DB::table('charities')->where('id','=',$id)->get()->first();
+                $charities = DB::table('charities')->where('id', '=', $id)->get()->first();
                 return view("admin.$name-charity", ["charities" => $charities]);
             }
         }
@@ -1138,7 +1210,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
             }
 
             return response()->json(["success" => true, "message" => "Donation successfully approved"]);
@@ -1177,7 +1249,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
             }
 
             return response()->json(["success" => true, "message" => "Donation successfully cancled"]);
@@ -1197,7 +1269,7 @@ class UserController extends Controller
 
                 return view("admin.$name-nfp", ["nfps" => $nfps]);
             } else {
-                $nfps = DB::table('nfps')->where('id','=',$id)->get()->first();
+                $nfps = DB::table('nfps')->where('id', '=', $id)->get()->first();
                 // dd($nfps);
                 return view("admin.$name-nfp", ["nfps" => $nfps]);
             }
@@ -1268,7 +1340,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1308,7 +1380,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1323,13 +1395,13 @@ class UserController extends Controller
             if (($name == "active") || ($name == "all")) {
                 $retirement = ($name == "active") ?
 
-                Retirement::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get():
+                Retirement::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get() :
 
                 Retirement::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
 
                 return view("admin.$name-retirement", ["retirement" => $retirement]);
             } else {
-                $retirement = DB::table('retirements')->where('id','=',$id)->get()->first();
+                $retirement = DB::table('retirements')->where('id', '=', $id)->get()->first();
                 // dd($charities);
                 return view("admin.$name-retirement", ["retirement" => $retirement]);
             }
@@ -1337,26 +1409,19 @@ class UserController extends Controller
 
         if ($name == "edit") {
             $retirement = DB::table('retirements')->get();
-            // dd($charities);
             $validated = $request->validate([
-                // "message" => ["required"],
                 "amount" => ["required", "numeric"],
                 "status" => ["required"],
             ]);
 
             $data = (object) $request->all();
-            // dd($data);
             $retirement = Retirement::where("id", "=", $id)->orderBy("created_at", "desc")->get()->first();
             $result = Retirement::where("id", "=", $id)->update([
-                // 'message' => $data->message,
                 'amount' => $data->amount,
                 'status' => 1,
             ]);
 
-            // if ($retirement->status == 1) {
-            //     return view("admin.$name-retirement", ["retirement" => $retirement, "error" => "You can't role back request after approval"]);
-            // }
-
+           
             if ($result) {
                 return view("admin.$name-retirement", ["retirement" => $retirement, "success" => "Retirement Funds Deposit Request Data Updated Successfully"]);
             } else {
@@ -1367,9 +1432,10 @@ class UserController extends Controller
             $retirement = Retirement::where("id", "=", $id)->get()->first();
             $retirement->delete();
             echo json_encode(["success" => true]);
-        } elseif ($name == "approve") {
+        }
+        
+        elseif ($name == "approve") {
             $retirement = Retirement::where("id", "=", $id)->get()->first();
-            // dd($retirement);
             if ($retirement->status == 1) {
                 return response()->json(["error" => true, "message" => "This request has been approved previously"]);
             }
@@ -1403,7 +1469,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1443,7 +1509,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1464,17 +1530,15 @@ class UserController extends Controller
 
                 return view("admin.$name-childrenAccount", ["child" => $child]);
             } else {
-                $child = DB::table('children_accounts')->where('id','=',$id)->get()->first();
-                // dd($child);
+                $child = DB::table('children_accounts')->where('id', '=', $id)->get()->first();
+
                 return view("admin.$name-childrenAccount", ["child" => $child]);
             }
         }
 
         if ($name == "edit") {
             $child = DB::table('children_accounts')->get();
-            // dd($child);
             $validated = $request->validate([
-                // "message" => ["required"],
                 "amount" => ["required", "numeric"],
                 "status" => ["required"],
             ]);
@@ -1482,15 +1546,10 @@ class UserController extends Controller
             $data = (object) $request->all();
             $child = ChildrenAccount::where("id", "=", $id)->orderBy("created_at", "desc")->get()->first();
             $result = ChildrenAccount::where("id", "=", $id)->update([
-                // 'message' => $data->message,
                 'amount' => $data->amount,
                 'status' => 1,
             ]);
-            // dd($result);
-
-            // if ($child->status == 1) {
-            //     return view("admin.$name-childrenAccount", ["child" => $child, "error" => "You can't role back request after approval"]);
-            // }
+            
 
             if ($result) {
                 return view("admin.$name-childrenAccount", ["child" => $child, "success" => "child Funds Deposit Request Data Updated Successfully"]);
@@ -1504,7 +1563,6 @@ class UserController extends Controller
             echo json_encode(["success" => true]);
         } elseif ($name == "approve") {
             $child = ChildrenAccount::where("id", "=", $id)->get()->first();
-            // dd($retirement);
             if ($child->status == 1) {
                 return response()->json(["error" => true, "message" => "This request has been approved previously"]);
             }
@@ -1538,8 +1596,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
-                // Never reached
+            } catch (\Exception $e) {
             }
 
             return response()->json(["success" => true, "message" => "Children Account Funds Deposit Request successfully approved"]);
@@ -1578,8 +1635,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
-                // Never reached
+            } catch (\Exception $e) {
             }
 
             return response()->json(["success" => true, "message" => "Children Account Fund Deposit Request successfully cancled"]);
@@ -1637,7 +1693,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails6));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1673,7 +1729,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails7));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 
@@ -1735,7 +1791,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails8));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 
@@ -1780,7 +1836,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails9));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 

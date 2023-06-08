@@ -115,7 +115,7 @@
                                         </script>,
                                         made with <i class="fa fa-heart"></i> by
                                         <a href="https://staretontech.com/" class="font-weight-bold"
-                                            target="_blank">Staretonfinance</a>
+                                            target="_blank">Stackforte Finance</a>
                                     </div>
                                 </div>
                             </div>
